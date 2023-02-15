@@ -1,0 +1,24 @@
+name: Package Build
+
+on:
+  push:
+    branches: ["master"]
+  
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Fyne Package install
+      with:
+        go-version: 1.19
+
+    - name: fyne install
+      run: go install fyne.io/fyne/v2/cmd@latest
+
+    - name: Windows package
+      run: fyne package --os windows
+      
+    - name: Linux package
+      run: fyne package --os linux
