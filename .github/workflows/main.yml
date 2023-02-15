@@ -10,15 +10,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Fyne Package install
-      with:
+    - with:
         go-version: 1.19
 
     - name: fyne install
-      run: go install fyne.io/fyne/v2/cmd@latest
+    - run: go install fyne.io/fyne/v2/cmd@latest
 
     - name: Windows package
-      run: fyne package --os windows
+    - run: fyne package --os windows
       
     - name: Linux package
-      run: fyne package --os linux
+    - run: fyne package --os linux
