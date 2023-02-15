@@ -1,25 +1,17 @@
-name: Package Build
-
-on:
-  push:
-    branches: ["master"]
-  
-
+name: Packa
+on: [push]
 jobs:
-
-  build:
+  Fyne-Build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Fyne Package install
-    - with:
-        go-version: 1.19
-
-    - name: fyne install
-    - run: go install fyne.io/fyne/v2/cmd@latest
-
-    - name: Windows package
-    - run: fyne package --os windows
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        
+      - name: Fyne İnstall
+        run: go install fyne.io/fyne/v2/cmd@latest
       
-    - name: Linux package
-    - run: fyne package --os linux
+      - name: Fyne Linux Package
+        run: fyne package --os linux
+        
+      - name: Fyne Windows Package
+        run: fyne package --os windows
