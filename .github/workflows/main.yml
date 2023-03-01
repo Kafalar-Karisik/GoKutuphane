@@ -15,10 +15,13 @@ jobs:
           cache-dependency-path: go.sum
 
       - name: Fyne Install
-        run: go get fyne.io/fyne/cmd/fyne
+        run: go install fyne.io/fyne/v2/cmd/fyne@latest
        
       - name: Status Check
-        run: echo "Hello World !"
+        run: echo "Okey..."
+
+      - name: Go Version Check
+        run: go version
 
       - name: Fyne Check
         run: fyne -v

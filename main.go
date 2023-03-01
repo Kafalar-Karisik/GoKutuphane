@@ -3,18 +3,21 @@ package main
 import (
 
 	//reflect.TypeOf(item)
-
 	//"database/sql"
+	
+	"fmt"
+	"log"
+	"time"
+	"runtime"
 
 	clck "GoKutuphane/clock"
-	"time"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/container"
-	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
+	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/widget"
+	"fyne.io/fyne/v2/container"
 	//_ "github.com/mattn/go-sqlite3"
 )
 
@@ -26,6 +29,9 @@ var Stats struct {
 }
 
 func main() {
+	log.Println("Program Running!")
+	log.Println("Go Version: " + runtime.Version())
+	fmt.Println("")
 
 	//Windows Set
 	mapp := app.NewWithID("GoKutuphane")
