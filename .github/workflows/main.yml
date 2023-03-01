@@ -25,9 +25,10 @@ jobs:
 
       - name: Fyne Check
         run: fyne -v
+
+      - name: Fyne Windows Package
+        run: fyne package --os windows
         
       - name: Fyne Linux Package
         run: fyne package --os linux
         
-      - name: Fyne Windows Package
-        run: fyne package --os windows
