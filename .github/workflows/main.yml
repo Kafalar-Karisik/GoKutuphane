@@ -33,8 +33,9 @@ jobs:
         run:
           git config --local user.name actions-user
           git config --local user.email "actions@github.com"
-          if ! git diff --exit-code; then
-              git add ./GoKutuphane.exe
-              git commit -am "Auto Fyne Packages Update."
-              git push -f origin main
-          fi
+          git diff --exit-code
+          if errorlevel 1 (
+            git add GoKutuphane.exe
+            git commit -am "Auto Fyne Packages Update."
+            git push -f origin main
+          )
