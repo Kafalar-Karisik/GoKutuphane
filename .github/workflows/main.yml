@@ -1,4 +1,4 @@
-name: Packa
+name: Package
 on: [push]
 jobs:
   Fyne-Build:
@@ -28,7 +28,17 @@ jobs:
 
       - name: Fyne Windows Package
         run: fyne package --os windows
-        
-      - name: Fyne Linux Package
-        run: fyne package --os linux
-        
+
+      - name: Fyne Android Package 
+        run : fyne package --os Android --appID com.KafalarKarisik.GoKutuphane
+
+      - name: Commit files  
+        run:
+          git config --local user.name actions-user
+          git config --local user.email "actions@github.com"
+          if ! git diff --exit-code; then
+              git add ./GoKutuphane.exe
+              git add ./GoKutuphane.apk
+              git commit -am "Auto Fyne Packages Update."
+              git push -f origin main
+          fi
