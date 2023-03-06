@@ -36,6 +36,6 @@ jobs:
           git diff --exit-code
           if errorlevel 1 (
             git add GoKutuphane.exe
-            git commit -am "Auto Fyne Packages Update."
+            git commit -m "Auto Fyne Packages Update."
             git push -f origin main
           )
