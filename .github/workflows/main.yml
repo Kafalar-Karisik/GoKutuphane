@@ -1,5 +1,8 @@
 name: Package
-on: [push]
+on:
+  push:
+    branches:
+      - main 
 jobs:
   Fyne-Build:
     runs-on: windows-latest
@@ -34,8 +37,6 @@ jobs:
           git config --local user.name actions-user
           git config --local user.email "actions@github.com"
           git diff --exit-code
-          if errorlevel 1 (
-            git add GoKutuphane.exe
-            git commit -m "Auto Fyne Packages Update."
-            git push -f origin main
-          )
+          git add GoKutuphane.exe
+          git commit -m "Auto Fyne Packages Update."
+          git push -f origin main
